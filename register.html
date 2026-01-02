@@ -2,15 +2,69 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Register - Library</title>
+    <title>Register</title>
+
+    <!-- Link CSS -->
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Center the form perfectly */
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            width: 350px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: darkgreen;
+        }
+
+        p {
+            text-align: center;
+        }
+    </style>
 </head>
+
 <body>
 
-<div class="form-container">
+<div class="container">
     <h2>Register</h2>
 
-    <form onsubmit="showSuccessMessage(); return false;">
+    <form onsubmit="return registerUser()">
         <input type="text" placeholder="Username" required>
         <input type="email" placeholder="Email" required>
         <input type="password" placeholder="Password" required>
@@ -18,16 +72,24 @@
         <button type="submit">Register</button>
     </form>
 
-    <p id="successMsg" style="color: green; display: none; margin-top: 10px;">
-        ✅ Your registration is successfully completed
-    </p>
+    <p id="successMsg" style="color:green;"></p>
 
-    <p>Already have an account? <a href="login.html">Login here</a></p>
+    <p>
+        Already have an account?
+        <a href="index.html">Login here</a>
+    </p>
 </div>
 
 <script>
-function showSuccessMessage() {
-    document.getElementById("successMsg").style.display = "block";
+function registerUser() {
+    document.getElementById("successMsg").innerText =
+        "Registration successful! Redirecting to login...";
+
+    setTimeout(function () {
+        window.location.href = "index.html";
+    }, 2000);
+
+    return false; // stop page reload
 }
 </script>
 
