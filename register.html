@@ -11,18 +11,41 @@
     <h2>Register</h2>
 
     <form onsubmit="showSuccessMessage(); return false;">
+
         <input type="text" placeholder="Username" required>
+
         <input type="email" placeholder="Email" required>
+
         <input type="password" placeholder="Password" required>
+
+        <!-- Gender -->
+        <div class="field-group">
+            <label>Gender</label><br>
+            <input type="radio" name="gender" required> Male
+            <input type="radio" name="gender"> Female
+            <input type="radio" name="gender"> Other
+        </div>
+
+        <!-- Working Status -->
+        <div class="field-group">
+            <label>Working Status</label>
+            <select required>
+                <option value="">-- Select --</option>
+                <option value="Student">Student</option>
+                <option value="Teacher">Teacher</option>
+            </select>
+        </div>
 
         <button type="submit">Register</button>
     </form>
 
-    <p id="successMsg" style="color: green; display: none; margin-top: 10px;">
+    <p id="successMsg">
         ✅ Your registration is successfully completed
     </p>
 
-    <p>Already have an account? <a href="login.html">Login here</a></p>
+    <p class="login-link">
+        Already have an account? <a href="login.html">Login here</a>
+    </p>
 </div>
 
 <script>
